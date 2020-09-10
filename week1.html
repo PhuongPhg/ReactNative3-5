@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Number Guessing Game</title>
+    </head>
+    <body>
+        <h1>Number Guessing Game</h1>
+        <p>Let guess number from 0 to 50</p>
+        <div id="message"></div>
+        <input type="number" id="number">
+        <button id="guessButton">Guess</button>
+        <p>The pass guess:</p>
+        <ul id = "passGuess"></ul>
+
+        <script>
+            var randomNumber=parseInt(Math.random()*50);
+            let i = 10;
+            let button = document.getElementById("guessButton");
+            button.addEventListener("click", 
+            function clickButton(){
+                var userGuess = parseInt(document.getElementById("number").value);
+
+                var node = document.createElement("li");
+                var nodeValue = document.createTextNode(userGuess);
+                node.appendChild(nodeValue);
+                document.getElementById("passGuess").appendChild(node);
+
+                if(i>0){
+                    if(userGuess < randomNumber){
+                        i--;
+                        document.getElementById("message").style.background="#E33E33";
+                        document.getElementById("message").innerHTML=`Sorry your guess is too low. You have ${i} guesses left.`;
+                    } else if (userGuess>randomNumber){
+                        i--;
+                        document.getElementById("message").style.background="#E33E33";
+                        document.getElementById("message").innerHTML=`Sorry your guess is too high. You have ${i} guesses left.`;
+                    } else {
+                        i--;
+                        document.getElementById("message").style.background="#97B85D";
+                        document.getElementById("message").innerHTML=`Congratulations!! You guessed correctly. It took you ${10-i} tries to guess the answer.`;
+                    }
+                } else{
+                    alert("Out of tries!");
+                    location.reload();
+                }
+            });
+        </script>
+    </body>
+</html>
