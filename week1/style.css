@@ -22,6 +22,13 @@ h1{
 }
 p{
     text-align: center;
+    /* display: inline;
+    background-color: #393b44;
+    border-radius: 20px;
+    color: #f1f3f8;
+    padding: 4px;
+    margin: auto;
+    width: 50%; */
 }
 .input-div{
     margin: auto;
@@ -68,7 +75,6 @@ button:hover{
     /* width: 50%; */
     padding: 5px;
 }
-
 #message.show{
     visibility: visible;
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
@@ -81,10 +87,13 @@ button:hover{
     from {bottom: 0; opacity: 0;}
     to {bottom: 30px; opacity: 1;}
 }
-#passGuess::before{
-    content: "The pass guess is:";
+#passGuess{
+    letter-spacing: 2px; 
     background-color: #393b44;
     border-radius: 20px;
     color: #f1f3f8;
     padding: 4px;
+    display: none;
+    margin: auto;
+    left: 50%;
 }
