@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <title>Number Guessing Game</title>
+    </head>
+    <body>
+        <div class="content">
+            <h1>Number Guessing Game</h1>
+            <p>Let guess from 0 to 50!</p>
+            <div id="message"></div>
+            <div class="input-div">
+                <input type="number" id="number" min="0" max="50" id="input-value">
+            </div>
+            <button type="submit" id="guessButton"><span class="material-icons md-48">keyboard_arrow_right</span></button>
+            <div id="passGuess"></div>
+        </div>
+        <script>
+            var randomNumber=parseInt(Math.random()*50);
+            let i = 0;
+            var arr=[];
+            let button = document.getElementById("guessButton");
+            button.addEventListener("click", 
+            function clickButton(){
+                var userGuess = parseInt(document.getElementById("number").value);
+                var mess = document.getElementById("message");
+                mess.className = "show";
+                if(i===9){
+                    button.disabled=true;
+                    var counter = 0;
+                    var interval = setInterval(function() {
+                        mess.style.animation = "none";
+                        counter++;
+                        mess.style.background="#393b44";
+                        mess.style.width = "50%";
+                        mess.style.color="#f1f3f8";
+                        mess.innerHTML=`Out of tries! Reload after ${counter}s.`;
+                        if (counter === 5) {
+                            clearInterval(interval);
+                            location.reload();
+                        }
+                    }, 1000);
+                    
+                } else if(i<9){
+                    if(userGuess < randomNumber){
+                        i++;
+                        arr.push(userGuess);
+                        mess.style.background="#393b44";
+                        mess.style.width = "50%";
+                        mess.style.color="#f1f3f8";
+                        mess.innerHTML=`Sorry your guess is too low. You have ${10-i} guesses left.`;
+                        setTimeout(function(){mess.className = mess.className.replace("show", ""); }, 3000);
+                        
+                    } else if (userGuess>randomNumber){
+                        arr.push(userGuess);
+                        i++;
+                        mess.style.background="#393b44";
+                        mess.style.width = "50%";
+                        mess.style.color="#f1f3f8";
+                        mess.innerHTML=`Sorry your guess is too high. You have ${10-i} guesses left.`;
+                        setTimeout(function(){mess.className = mess.className.replace("show", ""); }, 3000);
+                    } else if(userGuess === randomNumber) {
+                        arr.push(userGuess);
+                        i++;
+                        mess.style.background="#8d93ab";
+                        mess.style.width = "80%";
+                        mess.innerHTML=`Congratulations!! You guessed correctly. It took you ${i} tries to guess the answer.`;
+                    } else{
+                        alert('Input a number!');
+                    }
+                }
+                document.getElementById("passGuess").style.fontWeight = 'bold';
+                document.getElementById("passGuess").innerHTML=` ${arr.join(' ')}`;
+            });
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&family=Roboto&display=swap');
+body{
+    background-color: #f1f3f8;
+    font-family: 'Roboto', sans-serif;
+    color: #393b44;
+}
+.content{
+    margin: auto;
+    width: 50%;
+    /* border: 3px solid green; */
+    padding: 10px;
+    align-items: center;
+}
+h1{
+    text-align: center;
+    font-family: 'PT Serif', serif;
+    border: none;
+    border-bottom: 3px solid #8d93ab;
+    width: 50%;
+    margin: auto;
+    padding-bottom: 5px;
+}
+p{
+    text-align: center;
+}
+.input-div{
+    margin: auto;
+    width: 70%;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+}
+input{
+    width: 30%;
+    margin: auto;
+    height: 25px;
+    padding: 5px;
+    border: none;
+    outline: none;
+    border-bottom: 3px solid #8d93ab;
+    transition: width 0.5s ease-in-out;
+    flex-grow: 0;
+    text-align: center;
+}
+input:focus{
+    width: 60%;
+}
+button{
+    margin: auto;
+    display: flex;
+    border-radius: 100%;
+    background-color: #d6e0f0;
+    border-style: none;
+    padding: 10px;
+    color: #393b44;
+    transition: all 0.25s ease-in;
+}
+button:hover{
+    background-color: #393b44;
+    color: #d6e0f0;
+}
+#message{
+    visibility: hidden;
+    margin: auto;
+    text-align: center;
+    left: 50%;
+    border-radius: 30px;
+    /* width: 50%; */
+    padding: 5px;
+}
+
+#message.show{
+    visibility: visible;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+#passGuess::before{
+    content: "The pass guess is:";
+    background-color: #393b44;
+    border-radius: 20px;
+    color: #f1f3f8;
+    padding: 4px;
+}

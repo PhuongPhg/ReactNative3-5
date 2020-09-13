@@ -7,7 +7,7 @@
         <h1>Number Guessing Game</h1>
         <p>Let guess number from 0 to 50</p>
         <div id="message"></div>
-        <input type="number" id="number">
+        <input type="number" id="number" min="0" max="50">
         <button id="guessButton">Guess</button>
         <p>The pass guess:</p>
         <ul id = "passGuess"></ul>
@@ -19,7 +19,6 @@
             button.addEventListener("click", 
             function clickButton(){
                 var userGuess = parseInt(document.getElementById("number").value);
-
                 var node = document.createElement("li");
                 var nodeValue = document.createTextNode(userGuess);
                 node.appendChild(nodeValue);
