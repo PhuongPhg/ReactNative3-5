@@ -1,4 +1,4 @@
-#Week 1 - Homework - Number Guessing Game in HTML
+# Week 1 - Homework - Number Guessing Game in HTML
 
 **Project Brief**
 
