@@ -9,7 +9,7 @@
         <div class="content">
             <h1>Number Guessing Game</h1>
             <p>Let guess from 0 to 50!</p>
-            <div id="message"></div>
+            <div id="message">0</div>
             <div class="input-div">
                 <input type="number" id="number" min="0" max="50" id="input-value">
             </div>
@@ -70,8 +70,9 @@
                         alert('Input a number!');
                     }
                 }
-                document.getElementById("passGuess").style.fontWeight = 'bold';
-                document.getElementById("passGuess").innerHTML=` ${arr.join(' ')}`;
+                document.getElementById("passGuess").style.display = "inline";
+                // document.getElementById("passGuess").style.fontWeight = 'bold';
+                document.getElementById("passGuess").innerHTML=`The pass guesses are: ${arr.join(' ')}`;
             });
             
         </script>
